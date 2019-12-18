@@ -12,8 +12,9 @@
     "react-scripts": "3.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "webpack --mode=development",
+    "build": "webpack --mode=production",
+    "dev-server": "webpack-dev-server",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -42,6 +43,7 @@
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
+    "css-loader": "^3.4.0",
     "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.19.1",
@@ -49,6 +51,10 @@
     "eslint-plugin-react": "^7.17.0",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "style-loader": "^1.0.2",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.0"
   }
 }
