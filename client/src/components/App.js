@@ -16,12 +16,4 @@ const App = () => {
   );
 };
 
-const Navbar = () => {
-  return <div>nav</div>;
-};
-
-const Main = () => {
-  return <div>Hello</div>;
-};
-
 export default App;
