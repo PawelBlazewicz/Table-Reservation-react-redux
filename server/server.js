@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 const express = require("express");
-var cors = require("cors");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const config = require("config");
+const path = require('path');
 
 const app = express();
 app.use(cors());
@@ -18,6 +19,11 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger("dev"));
+
+app.use(express.static(path.resolve('../client/public')));
+app.get('/*', function(req, res) {
+  res.sendFile(path.resolve('../client/public/index.html'));
+});
 
 const API_PORT = 3001;
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));

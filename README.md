@@ -4,4 +4,4 @@
 3. cd client npm install
 4. cd ..
 5. npm install
-6. npm start
+6. npm start || npm run start-dev
