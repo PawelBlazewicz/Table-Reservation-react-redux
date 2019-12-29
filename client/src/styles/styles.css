@@ -1,3 +1,43 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: content-box;
+}
+
 body {
   background: #ccc;
+}
+.navbar {
+  background-color: aquamarine;
+}
+
+.table {
+  background-color: bisque;
+  padding: 5px;
+  width: 250px;
+  min-width: 150px;
+  margin: 5px;
+}
+
+.reservation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hour {
+  background-color: #0000002b;
+  margin: 4px;
+  list-style: none;
+  font-size: 26px;
+  text-align: center;
+}
+.tableMinFoto {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.description {
+  font-size: 18px;
 }

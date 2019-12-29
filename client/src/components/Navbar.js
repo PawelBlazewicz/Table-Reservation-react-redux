@@ -3,7 +3,7 @@ import GoogleAuth from './GoogleAuth.js';
 
 const Navbar = () => {
   return (
-    <div>
+    <div className="navbar" >
       <GoogleAuth />
     </div>
   );
