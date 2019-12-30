@@ -4,7 +4,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const config = require("config");
-const path = require('path');
+const path = require("path");
+const day = require("./routes/day.route.js");
 
 const app = express();
 app.use(cors());
@@ -20,9 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger("dev"));
 
-app.use(express.static(path.resolve('../client/public')));
-app.get('/*', function(req, res) {
-  res.sendFile(path.resolve('../client/public/index.html'));
+app.use("/", day);
+app.use(express.static(path.resolve("../client/public")));
+app.get("/*", function(req, res) {
+  res.sendFile(path.resolve("../client/public/index.html"));
 });
 
 const API_PORT = 3001;
