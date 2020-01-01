@@ -1,7 +1,8 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 import moment from 'moment';
 
-const DateSelect = () => {
+const Dates = () => {
   let dates = [...Array(7).keys()];
   dates = dates.map((i) =>
     moment()
@@ -15,7 +16,26 @@ const DateSelect = () => {
     </option>
   ));
 
-  return <select>{dates}</select>;
+  return dates;
 };
 
-export default DateSelect;
+class DateSelect extends React.Component {
+  componentWillMount() {
+    this.props.initialize({ choosenDate: moment().format('MMMM Do YYYY') });
+  }
+  render() {
+    //const { input: { value, onChange } } = this.props;
+    return (
+      <form>
+        <Field name="choosenDate" type="text" component="select">
+          <Dates />
+        </Field>
+        <button type="submit">Wybierz date</button>
+      </form>
+    );
+  }
+}
+
+export default reduxForm({
+  form: 'dateSelect',
+})(DateSelect);
