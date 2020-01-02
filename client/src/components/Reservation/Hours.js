@@ -5,11 +5,11 @@ const Hours = () => {
   const close = 23;
   let hoursList = [];
   for (let i = open; i < close; ++i) {
-    hoursList.push(i);
+    hoursList.push(`${i}:00`);
   }
   hoursList = hoursList.map((e) => (
-    <li className="hour" key={e}>
-      {e}:00
+    <li className={e + " hour"} key={e}>
+      {e}
       <br />
       Wolny
     </li>

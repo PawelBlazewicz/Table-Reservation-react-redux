@@ -17,10 +17,11 @@ exports.addDay = function(req, res) {
 };
 
 exports.getReservations = function(req, res) {
-  Day.find({ date: req.body.day })
+  console.log(req.params.date);
+  Day.find({ date: req.params.date })
     .exec()
     .then(day => {
-      res.send(day);
+      res.send(day[0]);
     })
     .catch(err => {
       console.log(err);
@@ -28,7 +29,7 @@ exports.getReservations = function(req, res) {
 };
 
 exports.addReservations = function(req, res) {
-  Day.find({ date: req.body.day })
+  Day.find({ date: req.body.date })
     .exec()
     .then(day => {
       const table = new Table({

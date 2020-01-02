@@ -31,6 +31,7 @@ body {
   list-style: none;
   font-size: 26px;
   text-align: center;
+  height: 65px;
 }
 .tableMinFoto {
   max-width: 100%;
@@ -40,4 +41,10 @@ body {
 
 .description {
   font-size: 18px;
+}
+
+.reserved {
+  color: red;
+  border: 1px solid red;
+  background: none;
 }

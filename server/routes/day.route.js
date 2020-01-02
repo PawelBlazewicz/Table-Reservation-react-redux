@@ -4,7 +4,7 @@ const controller = require("../controllers/day.controller.js");
 
 router.post('/day', controller.addDay);
 
-router.get('/reservations/', controller.getReservations);
+router.get('/reservations/:date', controller.getReservations);
 
 router.post('/reservations/', controller.addReservations);
 
