@@ -11,7 +11,7 @@ const Hours = () => {
     <li className="hour" key={e}>
       {e}:00
       <br />
-      Zarezerowany
+      Wolny
     </li>
   ));
 
