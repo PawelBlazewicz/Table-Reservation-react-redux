@@ -13,30 +13,42 @@ class Table extends React.Component {
         if (e.target.matches('li.reserved')) {
           return;
         } else if (e.target.matches('li')) {
+          const email = store.getState().auth.email;
           const date = e.target.parentElement.parentElement.dataset.data;
           const table = e.target.parentElement.parentElement.dataset.number;
           const time = e.target.childNodes[0].nodeValue;
 
-          console.log(date, time, table, store.getState().auth.isSignedIn);
+          name = prompt(
+            `
 
-          fetch(`/reservations/`, {
-            method: 'Post',
-            body: JSON.stringify({
-              date: date,
-              table: table,
-              time: time,
-              email: store.getState().auth.email,
-              message: 'test',
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }).then(
-            document
-              .querySelector(`.table${table} li[class*="${time}"]`)
-              .classList.add(`reserved`),
+              Rezerwacja stolika nr ${table} na godzinę ${time} dnia ${date}.
+           Potwierdzenia rezerwacji zostanie wysłane za adres
+           e-mail: ${email}.
+           Proszę podać swoje nazwisko i potwierdzić rezerwacje.`,
+            '',
           );
+          if (name != 'null' && name != '') {
+            fetch(`/reservations/`, {
+              method: 'Post',
+              body: JSON.stringify({
+                date: date,
+                table: table,
+                time: time,
+                email: email,
+                message: name,
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            }).then(
+              document
+                .querySelector(`.table${table} li[class*="${time}"]`)
+                .classList.add(`reserved`),
+            );
+          }
         }
+      } else {
+        alert('W celu wykonania rezerwacji należy się zalogowac.');
       }
     };
 
