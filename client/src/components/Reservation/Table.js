@@ -25,7 +25,7 @@ class Table extends React.Component {
               date: date,
               table: table,
               time: time,
-              email: '1212@gmail.com',
+              email: store.getState().auth.email,
               message: 'test',
             }),
             headers: {

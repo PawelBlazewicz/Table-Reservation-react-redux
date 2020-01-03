@@ -9,7 +9,7 @@ class GoogleAuth extends React.Component {
         .init({
           clientId:
             '522079809058-2nfek2o98na9se24c0moolvch6pgu4q2.apps.googleusercontent.com',
-          scope: 'email',
+          scope: 'profile email',
         })
         .then(() => {
           this.auth = window.gapi.auth2.getAuthInstance();
@@ -21,7 +21,17 @@ class GoogleAuth extends React.Component {
 
   onAuthChange = (isSignedIn) => {
     if (isSignedIn) {
-      this.props.signIn(gapi.auth2.getAuthInstance().currentUser.get().getId());
+      this.props.signIn(
+        gapi.auth2
+          .getAuthInstance()
+          .currentUser.get()
+          .getId(),
+        gapi.auth2
+          .getAuthInstance()
+          .currentUser.get()
+          .getBasicProfile()
+          .getEmail(),
+      );
     } else {
       this.props.signOut();
     }
