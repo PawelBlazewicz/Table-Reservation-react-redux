@@ -27,7 +27,6 @@ class DateSelect extends React.Component {
   componentDidUpdate() {
     let date = store.getState().form.dateSelect.values.choosenDate;
     const rez = document.querySelectorAll(`.reserved`);
-    console.log(rez);
     rez.forEach((e) => e.classList.remove(`reserved`));
 
     fetch(`/day/`, {
