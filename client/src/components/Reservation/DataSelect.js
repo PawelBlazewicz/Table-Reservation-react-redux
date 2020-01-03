@@ -26,6 +26,9 @@ const Dates = () => {
 class DateSelect extends React.Component {
   componentDidUpdate() {
     let date = store.getState().form.dateSelect.values.choosenDate;
+    const rez = document.querySelectorAll(`.reserved`);
+    console.log(rez);
+    rez.forEach((e) => e.classList.remove(`reserved`));
 
     fetch(`/day/`, {
       method: 'Post',
@@ -37,13 +40,10 @@ class DateSelect extends React.Component {
       fetch(`/reservations/${date}`)
         .then((data) => data.json())
         .then((data) => {
-          console.log(data.reservations);
           data.reservations.forEach((e) => {
             document
               .querySelector(`.table${e.table} li[class*="${e.time}"]`)
               .classList.add(`reserved`);
-            document.querySelector(`.table${e.table} li[class*="${e.time}"]`)
-            .innerHTML = 'zarezerwowany';
           });
         }),
     );

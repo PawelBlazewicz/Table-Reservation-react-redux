@@ -44,7 +44,17 @@ body {
 }
 
 .reserved {
-  color: red;
+  color: #ff000000;
   border: 1px solid red;
   background: none;
+  text-indent: -9999px;
+  line-height: 0;
+}
+
+.hour.reserved::after {
+  content: 'Zarezerwowany';
+  text-indent: 0;
+  color: red;
+  display: block;
+  line-height: initial;
 }
