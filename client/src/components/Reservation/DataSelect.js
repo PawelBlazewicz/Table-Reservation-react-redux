@@ -1,5 +1,6 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { Control } from 'react-redux-form';
 import moment from 'moment';
 import store from '../../index.js';
 import Table from './Table.js';
@@ -23,52 +24,57 @@ const Dates = () => {
   return dates;
 };
 
+const showReservations = () => {
+  const date = store.getState().forms.choosenDate;
+  const rez = document.querySelectorAll(`.reserved`);
+  rez.forEach((e) => e.classList.remove(`reserved`));
+
+  fetch(`/day/`, {
+    method: 'Post',
+    body: JSON.stringify({ date: date }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(
+    fetch(`/reservations/${date}`)
+      .then((data) => data.json())
+      .then((data) => {
+        data.reservations.forEach((e) => {
+          document
+            .querySelector(`.table${e.table} li[class*="${e.time}"]`)
+            .classList.add(`reserved`);
+        });
+      }),
+  );
+};
+
 class DateSelect extends React.Component {
   componentDidUpdate() {
-    let date = store.getState().form.dateSelect.values.choosenDate;
-    const rez = document.querySelectorAll(`.reserved`);
-    rez.forEach((e) => e.classList.remove(`reserved`));
-
-    fetch(`/day/`, {
-      method: 'Post',
-      body: JSON.stringify({ date: date }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then(
-      fetch(`/reservations/${date}`)
-        .then((data) => data.json())
-        .then((data) => {
-          data.reservations.forEach((e) => {
-            document
-              .querySelector(`.table${e.table} li[class*="${e.time}"]`)
-              .classList.add(`reserved`);
-          });
-        }),
-    );
+    showReservations();
   }
 
-  componentWillMount() {
-    this.props.initialize({ choosenDate: moment().format('LL') });
+  componentDidMount() {
+    showReservations();
   }
 
   render() {
-    //const { input: { value, onChange } } = this.props;
+    let { forms } = this.props;
+    console.log(this.props, this.state)
     const tableList = Description.map((e) => (
       <Table
-        key={e.number}
+        key={e.number + '-' + store.getState().forms.choosenDate}
         number={e.number}
         desc={e.desc}
         url={e.url}
-        data={store.getState().form.dateSelect.values.choosenDate}
+        data={store.getState().forms.choosenDate}
       />
     ));
     return (
       <div>
         <form>
-          <Field name="choosenDate" type="text" component="select">
+          <Control.select model="forms.choosenDate" id="forms.choosenDate">
             <Dates />
-          </Field>
+          </Control.select>
         </form>
         <div className="reservation">{tableList}</div>
       </div>
@@ -76,6 +82,6 @@ class DateSelect extends React.Component {
   }
 }
 
-export default reduxForm({
-  form: 'dateSelect',
-})(DateSelect);
+const selector = (state) => ({ forms: state.forms });
+
+export default connect(selector)(DateSelect);
