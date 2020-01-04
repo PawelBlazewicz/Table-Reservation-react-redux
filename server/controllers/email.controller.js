@@ -27,12 +27,10 @@ exports.sendDone = function(req, res) {
   wykonaną na nazwisko ${message}`;
 
   send(emailMessage)
-
   res.send("Reservations done");
 };
 
-
-const send =mes => transporter.sendMail(mes, (err, info) => {
+const send = (mes) => transporter.sendMail(mes, (err, info) => {
     if (err) {
       console.log("Error occurred. " + err.message);
       return process.exit(1);
