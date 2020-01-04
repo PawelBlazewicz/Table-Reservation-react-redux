@@ -28,7 +28,7 @@ exports.getReservations = function(req, res) {
     });
 };
 
-exports.addReservations = function(req, res) {
+exports.addReservations = function(req, res, next) {
   Day.find({ date: req.body.date })
     .exec()
     .then(day => {
@@ -40,7 +40,7 @@ exports.addReservations = function(req, res) {
       });
       day[0].reservations.push(table);
       day[0].save();
-      res.send("Reservations done");
+      next();
     })
     .catch(err => {
       console.log(err);
