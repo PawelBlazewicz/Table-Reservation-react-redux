@@ -54,4 +54,5 @@ div.ui.segments.container {
 }
 .reserved:hover {
   color: white;
+  background-color: #a5a5a557;
 }
