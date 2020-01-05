@@ -9,7 +9,6 @@ const Menu = () => {
         <h3 className="ui header">Przystawki</h3>
         <div className="ui items divided">
           {starters.map((course, index) => {
-            console.log(course);
             return (
               <div className="item">
                 <div className="ui tiny image">
@@ -29,7 +28,6 @@ const Menu = () => {
         <h3 className="ui header">Dania Główne</h3>
         <div className="ui items divided">
           {mainCourses.map((course, index) => {
-            console.log(course);
             return (
               <div className="item">
                 <div className="ui tiny image">
@@ -49,7 +47,6 @@ const Menu = () => {
         <h3 className="ui header">Napoje</h3>
         <div className="ui items divided">
           {drinks.map((course, index) => {
-            console.log(course);
             return (
               <div className="item">
                 <div className="ui tiny image">
