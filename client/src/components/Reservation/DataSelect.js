@@ -43,6 +43,8 @@ const showReservations = () => {
           document
             .querySelector(`.table${e.table} li[class*="${e.time}"]`)
             .classList.add(`reserved`);
+
+          document.querySelector('.reserved').innerHTML = 'Zarezerwowany';
         });
       }),
   );
@@ -60,7 +62,7 @@ class DateSelect extends React.Component {
   render() {
     let { forms } = this.props;
     return (
-      <div className='resCont'>
+      <div className="resCont">
         <Control.select
           model="forms.choosenDate"
           id="forms.choosenDate"

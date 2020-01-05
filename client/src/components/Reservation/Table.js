@@ -8,6 +8,9 @@ class Table extends React.Component {
   }
 
   componentDidMount() {
+    const makeReserved = () => {
+      
+    }
     const makeReservation = (e) => {
       if (store.getState().auth.isSignedIn) {
         if (e.target.matches('li.reserved')) {
