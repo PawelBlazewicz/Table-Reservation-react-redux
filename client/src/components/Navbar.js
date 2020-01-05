@@ -30,10 +30,8 @@ class Navbar extends React.Component {
         <a className="item" onClick={this.onItemClick}>
           Kontakt
         </a>
-        <div class="right item">
-          <a class="ui inverted button">
-            <GoogleAuth />
-          </a>
+        <div className="right item">
+          <GoogleAuth />
         </div>
       </div>
     );
