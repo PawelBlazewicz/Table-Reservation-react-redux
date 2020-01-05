@@ -61,17 +61,16 @@ class DateSelect extends React.Component {
     let { forms } = this.props;
     return (
       <div className="reservationContainer">
-        <form>
-          <Control.select
-            model="forms.choosenDate"
-            id="forms.choosenDate"
-            updateOn="change"
-            className="ui dropdown"
-            defaultValue={moment().format('LL')}
-          >
-            <Dates />
-          </Control.select>
-        </form>
+        <Control.select
+          model="forms.choosenDate"
+          id="forms.choosenDate"
+          updateOn="change"
+          className="ui dropdown"
+          defaultValue={moment().format('LL')}
+        >
+          <Dates />
+        </Control.select>
+
         <div className="ui four column grid reservation">
           {Description.map((e) => (
             <Table
