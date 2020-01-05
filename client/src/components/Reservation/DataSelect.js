@@ -59,25 +59,29 @@ class DateSelect extends React.Component {
 
   render() {
     let { forms } = this.props;
-    const tableList = Description.map((e) => (
-      <Table
-        key={e.number + '-' + store.getState().forms.choosenDate}
-        number={e.number}
-        desc={e.desc}
-        url={e.url}
-        data={store.getState().forms.choosenDate}
-      />
-    ));
     return (
       <div className='resCont'>
         <Control.select
           model="forms.choosenDate"
           id="forms.choosenDate"
+          updateOn="change"
           className="ui dropdown"
+          defaultValue={moment().format('LL')}
         >
           <Dates />
         </Control.select>
-        <div className="ui four column grid reservation">{tableList}</div>
+
+        <div className="ui four column grid reservation">
+          {Description.map((e) => (
+            <Table
+              key={e.number + '-' + forms.choosenDate}
+              number={e.number}
+              desc={e.desc}
+              url={e.url}
+              data={forms.choosenDate}
+            />
+          ))}
+        </div>
       </div>
     );
   }
