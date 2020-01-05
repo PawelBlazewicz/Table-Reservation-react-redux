@@ -1,18 +1,10 @@
-.reservationContainer {
+.resCont {
   display: flex;
   flex-flow: column;
+  align-items: center;
+  width: 100vw;
 }
-
-.dropdown {
-  flex: 0 1 50%;
-  align-self: center;
-  padding: 2rem;
-  font-size: 1.5rem;
-  margin: 2rem 0;
-}
-
 .reservation {
-  flex: 1 1 100%;
   display: flex;
   justify-content: center;
 }
@@ -43,4 +35,11 @@
 .listItem h3 {
   padding-bottom: 0.5rem;
   font-size: 1.5rem;
+}
+
+select.ui.dropdown {
+  margin: 2rem 0;
+  font-size: 1.5rem;
+  padding: 1rem;
+  box-sizing: content-box;
 }

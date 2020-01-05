@@ -69,7 +69,7 @@ class DateSelect extends React.Component {
       />
     ));
     return (
-      <div className="reservationContainer">
+      <div className='resCont'>
         <Control.select
           model="forms.choosenDate"
           id="forms.choosenDate"

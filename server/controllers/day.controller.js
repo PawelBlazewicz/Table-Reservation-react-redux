@@ -32,20 +32,14 @@ exports.addReservations = function(req, res, next) {
   Day.find({ date: req.body.date })
     .exec()
     .then(day => {
-      day = day[0];
       const table = new Table({
         time: req.body.time,
         table: req.body.table,
         email: req.body.email,
         message: req.body.message,
       });
-
-      if(day.reservations.some( d => d.time === table.time && d.table === table.table)) {
-        res.send("Already Reserved");
-      }
-
-      day.reservations.push(table);
-      day.save();
+      day[0].reservations.push(table);
+      day[0].save();
       next();
     })
     .catch(err => {
