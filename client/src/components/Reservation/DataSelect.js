@@ -59,15 +59,6 @@ class DateSelect extends React.Component {
 
   render() {
     let { forms } = this.props;
-    const tableList = Description.map((e) => (
-      <Table
-        key={e.number + '-' + store.getState().forms.choosenDate}
-        number={e.number}
-        desc={e.desc}
-        url={e.url}
-        data={store.getState().forms.choosenDate}
-      />
-    ));
     return (
       <div className="reservationContainer">
         <Control.select
