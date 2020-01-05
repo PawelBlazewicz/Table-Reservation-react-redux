@@ -59,7 +59,6 @@ class DateSelect extends React.Component {
 
   render() {
     let { forms } = this.props;
-    console.log(this.props, this.state)
     const tableList = Description.map((e) => (
       <Table
         key={e.number + '-' + store.getState().forms.choosenDate}
