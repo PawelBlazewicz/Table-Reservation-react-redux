@@ -44,7 +44,9 @@ class Table extends React.Component {
                 .querySelector(`.table${table} li[class*="${time}"]`)
                 .classList.add(`reserved`),
 
-              (document.querySelector('.reserved').innerHTML = 'Zarezerwowany'),
+                document.querySelector(
+                  `.table${e.table} li[class*="${e.time}"]`,
+                ).innerHTML = 'Zarezerwowany';
             );
           }
         }
