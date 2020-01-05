@@ -59,15 +59,6 @@ class DateSelect extends React.Component {
 
   render() {
     let { forms } = this.props;
-    const tableList = Description.map((e) => (
-      <Table
-        key={e.number + '-' + forms.choosenDate}
-        number={e.number}
-        desc={e.desc}
-        url={e.url}
-        data={forms.choosenDate}
-      />
-    ));
     return (
       <div>
         <form>
@@ -80,7 +71,17 @@ class DateSelect extends React.Component {
             <Dates />
           </Control.select>
         </form>
-        <div className="reservation">{tableList}</div>
+        <div className="reservation">
+          {Description.map((e) => (
+            <Table
+              key={e.number + '-' + forms.choosenDate}
+              number={e.number}
+              desc={e.desc}
+              url={e.url}
+              data={forms.choosenDate}
+            />
+          ))}
+        </div>
       </div>
     );
   }
