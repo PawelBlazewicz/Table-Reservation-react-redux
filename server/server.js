@@ -27,5 +27,5 @@ app.get("/*", function(req, res) {
   res.sendFile(path.resolve("../client/public/index.html"));
 });
 
-const API_PORT = 3001;
+const API_PORT = process.env.PORT || 5000;
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
