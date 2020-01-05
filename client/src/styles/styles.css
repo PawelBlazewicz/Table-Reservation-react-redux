@@ -1,4 +1,18 @@
+.reservationContainer {
+  display: flex;
+  flex-flow: column;
+}
+
+.dropdown {
+  flex: 0 1 50%;
+  align-self: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+  margin: 2rem 0;
+}
+
 .reservation {
+  flex: 1 1 100%;
   display: flex;
   justify-content: center;
 }

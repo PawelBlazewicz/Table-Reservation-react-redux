@@ -69,12 +69,14 @@ class DateSelect extends React.Component {
       />
     ));
     return (
-      <div>
-        <form>
-          <Control.select model="forms.choosenDate" id="forms.choosenDate">
-            <Dates />
-          </Control.select>
-        </form>
+      <div className="reservationContainer">
+        <Control.select
+          model="forms.choosenDate"
+          id="forms.choosenDate"
+          className="ui dropdown"
+        >
+          <Dates />
+        </Control.select>
         <div className="ui four column grid reservation">{tableList}</div>
       </div>
     );
