@@ -42,7 +42,11 @@ const showReservations = () => {
         data.reservations.forEach((e) => {
           document
             .querySelector(`.table${e.table} li[class*="${e.time}"]`)
-            .classList.add(`reserved`).innerHTML = 'Zarezerwowany';
+            .classList.add(`reserved`);
+
+          document.querySelector(
+            `.table${e.table} li[class*="${e.time}"]`,
+          ).innerHTML = 'Zarezerwowany';
         });
       }),
   );

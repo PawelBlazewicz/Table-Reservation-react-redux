@@ -40,9 +40,13 @@ class Table extends React.Component {
                 'Content-Type': 'application/json',
               },
             }).then(
-              (document
+              document
                 .querySelector(`.table${table} li[class*="${time}"]`)
-                .classList.add(`reserved`).innerHTML = 'Zarezerwowany'),
+                .classList.add(`reserved`),
+
+                document.querySelector(
+                  `.table${e.table} li[class*="${e.time}"]`,
+                ).innerHTML = 'Zarezerwowany';
             );
           }
         }
