@@ -47,3 +47,10 @@ select.ui.dropdown {
 div.ui.segments.container {
   margin: 2rem 0;
 }
+
+.reserved{
+  background-color: #a5a5a557;
+}
+.reserved:hover {
+  color: white;
+}
