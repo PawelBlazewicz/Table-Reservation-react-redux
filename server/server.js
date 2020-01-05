@@ -10,7 +10,7 @@ const day = require("./routes/day.route.js");
 const app = express();
 app.use(cors());
 
-const dbRoute = config.get("dbRoute");
+const dbRoute = process.env.DBROUTE || config.get("dbRoute");
 
 mongoose.connect(dbRoute, { useNewUrlParser: true });
 let db = mongoose.connection;
