@@ -50,6 +50,7 @@ div.ui.segments.container {
 
 .reserved{
   background-color: #a5a5a557;
+  height: 68px
 }
 .reserved:hover {
   color: white;
