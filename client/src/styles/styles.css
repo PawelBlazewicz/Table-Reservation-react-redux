@@ -43,3 +43,7 @@ select.ui.dropdown {
   padding: 1rem;
   box-sizing: content-box;
 }
+
+div.ui.segments.container {
+  margin: 2rem 0;
+}
