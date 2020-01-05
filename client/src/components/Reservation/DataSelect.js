@@ -61,17 +61,22 @@ class DateSelect extends React.Component {
     let { forms } = this.props;
     const tableList = Description.map((e) => (
       <Table
-        key={e.number + '-' + store.getState().forms.choosenDate}
+        key={e.number + '-' + forms.choosenDate}
         number={e.number}
         desc={e.desc}
         url={e.url}
-        data={store.getState().forms.choosenDate}
+        data={forms.choosenDate}
       />
     ));
     return (
       <div>
         <form>
-          <Control.select model="forms.choosenDate" id="forms.choosenDate">
+          <Control.select
+            model="forms.choosenDate"
+            id="forms.choosenDate"
+            updateOn="change"
+            defaultValue={moment().format('LL')}
+          >
             <Dates />
           </Control.select>
         </form>
