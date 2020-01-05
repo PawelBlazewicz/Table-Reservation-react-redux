@@ -21,9 +21,9 @@ class Navbar extends React.Component {
         <Link className="item active" to="/" onClick={this.onItemClick}>
           O Nas
         </Link>
-        <a className="item" onClick={this.onItemClick}>
+        <Link className="item" to="/Menu" onClick={this.onItemClick}>
           Menu
-        </a>
+        </Link>
         <Link className="item" to="/Reservation" onClick={this.onItemClick}>
           Rezerwacja
         </Link>
