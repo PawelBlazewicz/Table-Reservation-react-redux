@@ -8,14 +8,14 @@ const Hours = () => {
     hoursList.push(`${i}:00`);
   }
   hoursList = hoursList.map((e) => (
-    <li className={e + " hour"} key={e}>
+    <li className={e + ' hour' + ' listItem'} key={e}>
       {e}
       <br />
       Wolny
     </li>
   ));
 
-  return <ul>{hoursList}</ul>;
+  return <ul className="reservationList">{hoursList}</ul>;
 };
 
 export default Hours;

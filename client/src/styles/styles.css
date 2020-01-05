@@ -1,60 +1,32 @@
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: content-box;
-}
-
-body {
-  background: #ccc;
-}
-.navbar {
-  background-color: aquamarine;
-}
-
-.table {
-  background-color: bisque;
-  padding: 5px;
-  width: 250px;
-  min-width: 150px;
-  margin: 5px;
-}
-
 .reservation {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
-.hour {
-  background-color: #0000002b;
-  margin: 4px;
+.column {
+  flex: 0 1 20%;
+}
+
+.reservationList {
   list-style: none;
-  font-size: 26px;
+  background-color: #1b1c1d;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  padding: 1rem;
   text-align: center;
-  height: 65px;
-}
-.tableMinFoto {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
+  transition: all 0.2s;
 }
 
-.description {
-  font-size: 18px;
+.listItem:hover {
+  background-color: white;
+  color: #1b1c1d;
 }
 
-.reserved {
-  color: #ff000000;
-  border: 1px solid red;
-  background: none;
-  text-indent: -9999px;
-  line-height: 0;
-}
-
-.hour.reserved::after {
-  content: 'Zarezerwowany';
-  text-indent: 0;
-  color: red;
-  display: block;
-  line-height: initial;
+.listItem h3 {
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
 }

@@ -20,11 +20,10 @@ class Table extends React.Component {
 
           name = prompt(
             `
-
-              Rezerwacja stolika nr ${table} na godzinę ${time} dnia ${date}.
-           Potwierdzenia rezerwacji zostanie wysłane za adres
-           e-mail: ${email}.
-           Proszę podać swoje nazwisko i potwierdzić rezerwacje.`,
+            Rezerwacja stolika nr ${table} na godzinę ${time} dnia ${date}.
+            Potwierdzenia rezerwacji zostanie wysłane na adres e-mail: ${email}.
+            Proszę podać swoje nazwisko i potwierdzić rezerwacje.
+            `,
             '',
           );
           if (name != 'null' && name != '') {
@@ -44,11 +43,13 @@ class Table extends React.Component {
               document
                 .querySelector(`.table${table} li[class*="${time}"]`)
                 .classList.add(`reserved`),
+
+              (document.querySelector('.reserved').innerHTML = 'Zarezerwowany'),
             );
           }
         }
       } else {
-        alert('W celu wykonania rezerwacji należy się zalogowac.');
+        alert('W celu dokonania rezerwacji należy się zalogować.');
       }
     };
 
@@ -59,17 +60,23 @@ class Table extends React.Component {
 
   render() {
     return (
-      <div
-        className={'table table' + this.props.number}
-        data-data={this.props.data}
-        data-number={this.props.number}
-      >
-        Hello from table {this.props.number}
-        <br />
-        <img className="tableMinFoto" src={this.props.url} />
-        <br />
-        <p className="description">{this.props.desc} </p>
-        <Hours />
+      <div className="column">
+        <div
+          className={'ui fluid card table table' + this.props.number}
+          data-data={this.props.data}
+          data-number={this.props.number}
+        >
+          <div className="image">
+            <img className="tableMinFoto" src={this.props.url} />
+          </div>
+          <div className="content">
+            <div className="header">Stolik nr {this.props.number}</div>
+            <div className="description">
+              <p>{this.props.desc}</p>
+            </div>
+          </div>
+          <Hours />
+        </div>
       </div>
     );
   }

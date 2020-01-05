@@ -75,7 +75,7 @@ class DateSelect extends React.Component {
             <Dates />
           </Control.select>
         </form>
-        <div className="reservation">{tableList}</div>
+        <div className="ui four column grid reservation">{tableList}</div>
       </div>
     );
   }
